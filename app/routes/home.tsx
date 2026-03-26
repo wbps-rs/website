@@ -21,7 +21,7 @@ import type { Route } from "./+types/home"
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Wbps" },
+    { title: "wbps" },
     {
       name: "description",
       content: "A free and open-source WASM based plugin service.",
@@ -49,7 +49,7 @@ export default function Home() {
             <div className="space-y-6">
               <div className="flex items-center justify-between lg:block">
                 <h1 className="text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl">
-                  Wbps: WASM based plugin service.
+                  wbps: WASM based plugin service.
                 </h1>
                 <BrandIcon
                   className="h-auto w-64 rounded-xl bg-accent/10 lg:hidden border"
