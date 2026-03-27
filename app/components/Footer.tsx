@@ -1,6 +1,6 @@
-import { Link } from "react-router"
-import BrandIcon from "~/components/BrandIcon"
-import { buttonVariants } from "~/components/ui/button"
+import { Link } from "react-router";
+import BrandIcon from "~/components/BrandIcon";
+import { buttonVariants } from "~/components/ui/button";
 
 function Footer() {
   return (
@@ -19,8 +19,7 @@ function Footer() {
             target="_blank"
             className={buttonVariants({
               variant: "link",
-              className:
-                "h-auto p-0 ps-1 text-muted-foreground hover:text-foreground",
+              className: "h-auto p-0 ps-1 text-muted-foreground hover:text-foreground",
             })}
           >
             CC BY-SA 4.0.
@@ -28,7 +27,7 @@ function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

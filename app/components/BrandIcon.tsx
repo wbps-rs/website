@@ -1,9 +1,6 @@
-import type { SVGProps } from "react"
+import type { SVGProps } from "react";
 
-function BrandIcon({
-  animate,
-  ...props
-}: SVGProps<SVGSVGElement> & { animate?: boolean }) {
+function BrandIcon({ animate, ...props }: SVGProps<SVGSVGElement> & { animate?: boolean }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,6 +78,6 @@ function BrandIcon({
         transform="matrix(.9704 0 0 .99471 -18.3 -4)"
       />
     </svg>
-  )
+  );
 }
-export default BrandIcon
+export default BrandIcon;
