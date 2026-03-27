@@ -1,7 +1,7 @@
 import BrandIcon from "~/components/BrandIcon"
 import Footer from "~/components/Footer"
 import { Badge } from "~/components/ui/badge"
-import { Button } from "~/components/ui/button"
+import { Button, buttonVariants } from "~/components/ui/button"
 import {
   Card,
   CardContent,
@@ -18,6 +18,7 @@ import {
 import { Separator } from "~/components/ui/separator"
 import { Cpu, Server, Sparkles, Workflow } from "lucide-react"
 import type { Route } from "./+types/home"
+import { Link } from "react-router"
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -46,31 +47,34 @@ export default function Home() {
 
         <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-20">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-6">
+            <div className="order-1 space-y-6 lg:order-0">
               <div className="flex items-center justify-between lg:block">
                 <h1 className="text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl">
                   wbps: WASM based plugin service.
                 </h1>
-                <BrandIcon
-                  className="h-auto w-64 rounded-xl bg-accent/10 lg:hidden border"
-                  animate={true}
-                />
               </div>
               <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
                 A free and open-source WASM based plugin service for bots,
                 webhooks, and automations.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Button size="lg">Self-Host</Button>
+                <Button size="lg">Get started</Button>
                 <Button variant="outline" size="lg">
                   Managed Hosting
                 </Button>
+                <Link
+                  to="/"
+                  target="_blank"
+                  className={buttonVariants({ variant: "outline", size: "lg" })}
+                >
+                  Discord Server
+                </Link>
               </div>
             </div>
 
-            <div className="hidden items-center justify-center lg:flex">
+            <div className="order-0 flex items-center justify-center lg:order-1">
               <BrandIcon
-                className="h-auto w-full max-w-sm rounded-xl bg-accent/10 border"
+                className="h-auto w-1/2 max-w-sm rounded-xl border bg-accent/10 md:w-1/3 lg:w-full"
                 animate={true}
               />
             </div>
