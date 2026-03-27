@@ -46,7 +46,7 @@ export default function Home() {
             <div className="order-1 space-y-6 lg:order-0">
               <div className="flex items-center justify-between lg:block">
                 <h1 className="text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl">
-                  wbps: WASM based plugin service.
+                  wbps
                 </h1>
               </div>
               <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
@@ -56,9 +56,6 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-3">
                 <Button size="lg">Get started</Button>
-                <Button variant="outline" size="lg">
-                  Managed Hosting
-                </Button>
                 <Link
                   to="/"
                   target="_blank"
@@ -75,7 +72,7 @@ export default function Home() {
             <div className="relative order-0 flex items-center justify-center lg:order-1">
               <div className="absolute inset-0 rounded-full bg-primary/10 blur-[100px]" />
               <BrandIcon
-                className="relative z-10 h-auto w-2/3 max-w-sm rounded-2xl border border-border/50 bg-background/50 shadow-2xl backdrop-blur-md md:w-1/2 lg:w-full"
+                className="relative z-10 h-auto w-2/3 max-w-sm rounded-2xl shadow-md backdrop-blur-xs md:w-1/2 md:shadow-xl lg:w-full"
                 animate={true}
               />
             </div>
