@@ -4,13 +4,15 @@ import { buttonVariants } from "~/components/ui/button"
 
 function Footer() {
   return (
-    <footer className="flex w-full items-center justify-between bg-accent p-8">
+    <footer className="w-full bg-accent p-8 md:flex md:items-center md:justify-between">
       <div>
-        <BrandIcon className="rounded-lg" />
-        <p>© 2026 - 2026 The Wbps Project</p>
+        <BrandIcon className="mx-auto rounded-lg md:mx-0" />
+        <p className="text-center md:text-left">
+          © 2026 - 2026 The Wbps Project
+        </p>
       </div>
       <div>
-        <p>
+        <p className="text-center md:text-right">
           Licensed under
           <Link
             to="https://creativecommons.org/licenses/by-sa/4.0/"
