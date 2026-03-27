@@ -57,7 +57,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <Button size="lg">Get started</Button>
                 <Link
-                  to="/"
+                  to="https://discord.gg/3bgCdYRupn"
                   target="_blank"
                   className={buttonVariants({
                     variant: "outline",
