@@ -1,7 +1,5 @@
 import { Cpu, Server, Sparkles } from "lucide-react";
 import BrandIcon from "~/components/BrandIcon";
-import Footer from "~/components/Footer";
-import NavBar from "~/components/NavBar";
 import {
   Accordion,
   AccordionContent,
@@ -32,133 +30,126 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <NavBar />
-      <main className="relative py-12">
-        {/* Background Effects */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute inset-x-0 top-0 h-56 bg-linear-to-b from-background via-transparent to-transparent" />
+    <main className="relative py-12">
+      {/* Background Effects */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-x-0 top-0 h-56 bg-linear-to-b from-background via-transparent to-transparent" />
+      </div>
+
+      {/* HERO SECTION */}
+      <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="order-1 space-y-6 lg:order-0">
+            <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-left">
+              wbps
+            </h1>
+            <p className="text-center text-muted-foreground sm:text-lg lg:max-w-2xl lg:text-left">
+              A free and open-source WASM based plugin service for bots, webhooks, and automations.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+              <Button size="lg">Get started</Button>
+            </div>
+          </div>
+
+          <div className="relative order-0 flex items-center justify-center lg:order-1">
+            <div className="absolute inset-0 rounded-full bg-primary/10 blur-[100px]" />
+            <BrandIcon
+              className="relative z-10 h-auto w-2/3 max-w-sm md:w-1/2 lg:w-full"
+              animate={true}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20">
+        <div className="mb-12 flex flex-col items-center space-y-4 text-center">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Architecture</h2>
+          <p className="max-w-2xl text-lg text-muted-foreground">
+            The core orchestrates services while Wasmtime executes each plugin in an isolated
+            runtime boundary.
+          </p>
         </div>
 
-        {/* HERO SECTION */}
-        <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="order-1 space-y-6 lg:order-0">
-              <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-left">
-                wbps
-              </h1>
-              <p className="text-center text-muted-foreground sm:text-lg lg:max-w-2xl lg:text-left">
-                A free and open-source WASM based plugin service for bots, webhooks, and
-                automations.
-              </p>
-
-              <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-                <Button size="lg">Get started</Button>
-              </div>
-            </div>
-
-            <div className="relative order-0 flex items-center justify-center lg:order-1">
-              <div className="absolute inset-0 rounded-full bg-primary/10 blur-[100px]" />
-              <BrandIcon
-                className="relative z-10 h-auto w-2/3 max-w-sm md:w-1/2 lg:w-full"
-                animate={true}
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-6xl px-6 py-20">
-          <div className="mb-12 flex flex-col items-center space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Architecture</h2>
-            <p className="max-w-2xl text-lg text-muted-foreground">
-              The core orchestrates services while Wasmtime executes each plugin in an isolated
-              runtime boundary.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <Card>
-              <CardHeader>
-                <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-                  <Server className="size-4" />
-                  Core
-                </div>
-                <CardDescription>
-                  Interact with different services and manage registered plugins.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-                  <Cpu className="size-4" />
-                  Wasmtime
-                </div>
-                <CardDescription>
-                  Loads and runs plugin modules safely with strong isolation guarantees.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-                  <Sparkles className="size-4" />
-                  Feature Plugins
-                </div>
-                <CardDescription>
-                  Write plugins for different services in any language in independent, reusable, and
-                  community-maintained pieces.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-
-          <div className="mt-12 flex flex-col items-center justify-center space-y-4">
-            <p className="text-sm font-medium">Example plugins</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {pluginExamples.map((name) => (
-                <Badge key={name} variant="outline">
-                  {name}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ SECTION */}
-        <section className="mx-auto w-full max-w-3xl px-6 py-24">
+        <div className="grid gap-6 md:grid-cols-3">
           <Card>
             <CardHeader>
-              Common Questions
+              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
+                <Server className="size-4" />
+                Core
+              </div>
               <CardDescription>
-                <Accordion defaultValue={["scale"]}>
-                  <AccordionItem value="scale">
-                    <AccordionTrigger>What happens when a plugin is inactive?</AccordionTrigger>
-                    <AccordionContent>
-                      Inactive plugins can be scaled down, releasing allocated resources. The
-                      service can spin the plugin back up on demand when traffic or events require
-                      it.
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="safety">
-                    <AccordionTrigger>Why combine this with Wasmtime?</AccordionTrigger>
-                    <AccordionContent>
-                      Wasmtime gives each plugin a constrained runtime boundary, improving fault
-                      isolation and making plugin upgrades safer without redeploying the entire
-                      platform.
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                Interact with different services and manage registered plugins.
               </CardDescription>
             </CardHeader>
           </Card>
-        </section>
-      </main>
 
-      <Footer />
-    </>
+          <Card>
+            <CardHeader>
+              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
+                <Cpu className="size-4" />
+                Wasmtime
+              </div>
+              <CardDescription>
+                Loads and runs plugin modules safely with strong isolation guarantees.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
+                <Sparkles className="size-4" />
+                Feature Plugins
+              </div>
+              <CardDescription>
+                Write plugins for different services in any language in independent, reusable, and
+                community-maintained pieces.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-center space-y-4">
+          <p className="text-sm font-medium">Example plugins</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {pluginExamples.map((name) => (
+              <Badge key={name} variant="outline">
+                {name}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="mx-auto w-full max-w-3xl px-6 py-24">
+        <Card>
+          <CardHeader>
+            Common Questions
+            <CardDescription>
+              <Accordion defaultValue={["scale"]}>
+                <AccordionItem value="scale">
+                  <AccordionTrigger>What happens when a plugin is inactive?</AccordionTrigger>
+                  <AccordionContent>
+                    Inactive plugins can be scaled down, releasing allocated resources. The service
+                    can spin the plugin back up on demand when traffic or events require it.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="safety">
+                  <AccordionTrigger>Why combine this with Wasmtime?</AccordionTrigger>
+                  <AccordionContent>
+                    Wasmtime gives each plugin a constrained runtime boundary, improving fault
+                    isolation and making plugin upgrades safer without redeploying the entire
+                    platform.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </section>
+    </main>
   );
 }
