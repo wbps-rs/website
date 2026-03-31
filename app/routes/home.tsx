@@ -1,8 +1,7 @@
-import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
-import { Cpu, Server, Sparkles, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router";
+import { Cpu, Server, Sparkles } from "lucide-react";
 import BrandIcon from "~/components/BrandIcon";
 import Footer from "~/components/Footer";
+import NavBar from "~/components/NavBar";
 import {
   Accordion,
   AccordionContent,
@@ -10,7 +9,7 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import { Badge } from "~/components/ui/badge";
-import { Button, buttonVariants } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
 import { Card, CardDescription, CardHeader } from "~/components/ui/card";
 
 import type { Route } from "./+types/home";
@@ -34,14 +33,15 @@ export default function Home() {
 
   return (
     <>
-      <main className="relative isolate min-h-screen overflow-hidden pb-12">
+      <NavBar />
+      <main className="relative py-12">
         {/* Background Effects */}
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute inset-x-0 top-0 h-56 bg-linear-to-b from-background via-transparent to-transparent" />
         </div>
 
         {/* HERO SECTION */}
-        <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pt-24 pb-20 md:pt-32">
+        <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-20">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="order-1 space-y-6 lg:order-0">
               <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-left">
@@ -54,30 +54,6 @@ export default function Home() {
 
               <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
                 <Button size="lg">Get started</Button>
-                <Link
-                  to="https://github.com/wbps-rs"
-                  target="_blank"
-                  className={buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                  })}
-                >
-                  <SiGithub />
-                  GitHub
-                  <ArrowUpRight />
-                </Link>
-                <Link
-                  to="https://discord.gg/3bgCdYRupn"
-                  target="_blank"
-                  className={buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                  })}
-                >
-                  <SiDiscord />
-                  Discord Server
-                  <ArrowUpRight />
-                </Link>
               </div>
             </div>
 

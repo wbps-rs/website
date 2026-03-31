@@ -4,7 +4,7 @@ import { buttonVariants } from "~/components/ui/button";
 
 function Footer() {
   return (
-    <footer className="w-full border-t border-border/50 bg-background/50 p-8 backdrop-blur-sm md:flex md:items-center md:justify-between">
+    <footer className="w-full border-t border-border/50 p-8 md:flex md:items-center md:justify-between">
       <div className="flex flex-col items-center gap-4 md:items-start">
         <BrandIcon className="h-8 w-auto rounded-lg" />
         <p className="text-center text-sm text-muted-foreground md:text-left">
