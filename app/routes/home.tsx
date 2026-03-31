@@ -37,8 +37,6 @@ export default function Home() {
       <main className="relative isolate min-h-screen overflow-hidden pb-12">
         {/* Background Effects */}
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
-          <div className="absolute -top-32 -left-24 h-125 w-125 rounded-full bg-linear-to-br from-primary/20 via-primary/5 to-transparent blur-3xl" />
           <div className="absolute inset-x-0 top-0 h-56 bg-linear-to-b from-background via-transparent to-transparent" />
         </div>
 
