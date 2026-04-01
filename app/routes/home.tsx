@@ -1,4 +1,5 @@
-import { Cpu, Server, Sparkles } from "lucide-react";
+import { Book, Cpu, Server, Sparkles } from "lucide-react";
+import { Link } from "react-router";
 import BrandIcon from "~/components/BrandIcon";
 import {
   Accordion,
@@ -7,7 +8,7 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import { Badge } from "~/components/ui/badge";
-import { Button } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { Card, CardDescription, CardHeader } from "~/components/ui/card";
 
 import type { Route } from "./+types/home";
@@ -35,15 +36,27 @@ export default function Home() {
       <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="order-1 space-y-6 lg:order-0">
-            <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-left">
+            <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance text-primary sm:text-5xl lg:text-left">
               wbps
             </h1>
-            <p className="text-center text-muted-foreground sm:text-lg lg:max-w-2xl lg:text-left">
-              A free and open-source WASM based plugin service for bots, webhooks, and automations.
+            <p className="text-center sm:text-lg lg:max-w-2xl lg:text-left">
+              A free and open-source WASM based plugin service for bots, webhooks, automations and
+              more.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
               <Button size="lg">Get started</Button>
+              <Link
+                to="/docs"
+                target="_blank"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                })}
+              >
+                <Book />
+                Docs
+              </Link>
             </div>
           </div>
 
@@ -59,11 +72,7 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-6xl px-6 py-20">
         <div className="mb-12 flex flex-col items-center space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Architecture</h2>
-          <p className="max-w-2xl text-lg text-muted-foreground">
-            The core orchestrates services while Wasmtime executes each plugin in an isolated
-            runtime boundary.
-          </p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Features</h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">

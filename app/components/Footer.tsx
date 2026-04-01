@@ -3,24 +3,26 @@ import { buttonVariants } from "~/components/ui/button";
 
 function Footer() {
   return (
-    <footer className="w-full border-t p-8 md:flex md:items-center md:justify-between">
-      <p className="text-center text-sm text-muted-foreground md:text-left">
-        © 2026 The wbps Project
-      </p>
-      <div className="mt-6 text-center md:mt-0 md:text-right">
-        <p className="text-sm text-muted-foreground">
-          Licensed under
-          <Link
-            to="https://creativecommons.org/licenses/by-sa/4.0/"
-            target="_blank"
-            className={buttonVariants({
-              variant: "link",
-              className: "h-auto ps-1 pe-0 text-muted-foreground hover:text-foreground",
-            })}
-          >
-            CC BY-SA 4.0.
-          </Link>
+    <footer className="w-full border-t">
+      <div className="mx-auto max-w-6xl p-8 md:flex md:items-center md:justify-between">
+        <p className="text-center text-sm text-muted-foreground md:text-left">
+          © 2026 The wbps Project
         </p>
+        <div className="mt-6 text-center md:mt-0 md:text-right">
+          <p className="text-sm text-muted-foreground">
+            Licensed under
+            <Link
+              to="https://creativecommons.org/licenses/by-sa/4.0/"
+              target="_blank"
+              className={buttonVariants({
+                variant: "link",
+                className: "h-auto ps-1 pe-0 text-muted-foreground hover:text-foreground",
+              })}
+            >
+              CC BY-SA 4.0
+            </Link>
+          </p>
+        </div>
       </div>
     </footer>
   );
