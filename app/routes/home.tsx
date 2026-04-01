@@ -55,7 +55,7 @@ export default function Home() {
           <div className="relative order-0 flex items-center justify-center lg:order-1">
             <div className="absolute inset-0 rounded-full bg-primary/10 blur-[100px]" />
             <BrandIcon
-              className="relative z-10 h-auto w-2/3 max-w-sm md:w-1/2 lg:w-full"
+              className="relative h-auto w-2/3 max-w-sm md:w-1/2 lg:w-full"
               animate={true}
             />
           </div>

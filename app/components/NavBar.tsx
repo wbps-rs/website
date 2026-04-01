@@ -11,12 +11,13 @@ function NavBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between border-b bg-background p-4">
+    <nav className="sticky top-0 z-10 flex items-center justify-between border-b bg-background p-4">
       <Link
         to="/"
         className={buttonVariants({
           variant: "link",
           size: "lg",
+          className: "z-20",
         })}
       >
         <BrandIcon className="rounded-lg" />
@@ -27,26 +28,34 @@ function NavBar() {
         onClick={() => setOpen(!open)}
         variant="ghost"
         size="icon-lg"
-        className={cn("z-50 transition md:hidden", open ? "rotate-90" : "")}
+        className={cn("transition md:hidden", open ? "rotate-90" : "")}
+        aria-expanded={open}
+        aria-controls="navlink-container"
       >
         {open ? <X /> : <Menu />}
       </Button>
 
-      {open && (
-        <Separator className="absolute top-full left-1/2 z-50 w-screen -translate-x-1/2 md:hidden" />
-      )}
+      <Separator
+        className={cn(
+          "absolute top-full left-1/2 z-20 w-screen -translate-x-1/2 transition-opacity duration-300 md:opacity-0",
+          open ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
 
       <div
+        id="navlink-container"
         className={cn(
-          "absolute top-full right-0 left-0 z-40 flex min-h-svh w-full flex-col items-end gap-2 bg-background px-12 pt-6 pb-6 transition-all duration-300 md:static md:ml-auto md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100",
-          open ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0",
+          "absolute top-full right-0 left-0 z-10 flex min-h-svh w-full flex-col items-end gap-2 bg-background px-12 pt-6 pb-6 transition-all duration-300 will-change-transform md:pointer-events-auto md:visible md:static md:ml-auto md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100 md:transition-none",
+          open
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-12 opacity-0",
         )}
       >
         <Link
           to="/docs"
           target="_blank"
           className={buttonVariants({
-            variant: "link",
+            variant: "ghost",
             size: "lg",
             className: "w-full justify-start md:w-auto md:justify-center",
           })}
@@ -61,7 +70,7 @@ function NavBar() {
           to="https://github.com/wbps-rs"
           target="_blank"
           className={buttonVariants({
-            variant: "link",
+            variant: "ghost",
             size: "lg",
             className: "w-full justify-start md:w-auto md:justify-center",
           })}
@@ -77,7 +86,7 @@ function NavBar() {
           to="https://discord.gg/3bgCdYRupn"
           target="_blank"
           className={buttonVariants({
-            variant: "link",
+            variant: "ghost",
             size: "lg",
             className: "w-full justify-start md:w-auto md:justify-center",
           })}
