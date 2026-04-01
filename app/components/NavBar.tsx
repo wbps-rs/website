@@ -19,14 +19,10 @@ function NavBar() {
     >
       <Link
         to="/"
-        className={buttonVariants({
-          variant: "ghost",
-          size: "lg",
-          className: "z-20",
-        })}
+        className="inline-flex h-10 shrink-0 items-center justify-center px-2.5 text-lg transition-all md:text-xl"
       >
-        <BrandIcon className="size-8 rounded-lg" />
-        <p className="text-lg md:text-xl">wbps</p>
+        <BrandIcon className="size-8" />
+        wbps
       </Link>
 
       <Button
