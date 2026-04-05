@@ -5,13 +5,9 @@ function BrandIcon({ animate, ...props }: SVGProps<SVGSVGElement> & { animate?: 
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
-      fillRule="evenodd"
       strokeLinejoin="round"
       strokeMiterlimit={2}
-      clipRule="evenodd"
       viewBox="0 0 512 512"
-      width={48}
-      height={48}
       {...props}
     >
       <path

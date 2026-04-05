@@ -17,16 +17,16 @@ function NavBar() {
         open ? "bg-background" : "bg-background/70",
       )}
     >
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between p-2">
+      <div className="relative container mx-auto flex items-center justify-between p-2">
         <Link
           to="/"
-          className="inline-flex h-10 shrink-0 items-center justify-center px-2.5 text-lg md:text-xl"
+          className="inline-flex h-10 shrink-0 items-center justify-center gap-0.5 px-2.5 text-lg md:text-xl"
         >
-          <BrandIcon className="size-8" />
+          <BrandIcon className="size-10" />
           wbps
         </Link>
 
-        <div className="ml-auto flex items-center gap-2 md:ml-auto">
+        <div className="ml-auto flex items-center gap-2">
           <Button
             onClick={() => setOpen(!open)}
             variant="ghost"
@@ -41,7 +41,7 @@ function NavBar() {
           <div
             id="navlink-container"
             className={cn(
-              "absolute top-full right-0 left-0 z-20 flex min-h-svh w-full flex-col items-end gap-2 bg-background px-12 py-6 transition-all duration-300 md:pointer-events-auto md:visible md:static md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100 md:transition-none",
+              "absolute top-full right-0 left-0 z-20 flex min-h-svh w-full flex-col items-end gap-2 bg-background px-12 py-6 transition-all duration-300 md:static md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100 md:transition-none",
               open
                 ? "pointer-events-auto translate-y-0 opacity-100"
                 : "pointer-events-none -translate-y-4 opacity-0",

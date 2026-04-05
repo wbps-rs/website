@@ -24,15 +24,15 @@ export function meta(_: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main className="relative py-12">
+    <main className="py-12">
       {/* HERO SECTION */}
-      <section className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-20">
+      <section className="container mx-auto flex flex-col gap-8 px-6 pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="order-1 space-y-6 lg:order-0">
             <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance text-primary sm:text-5xl lg:text-left">
               wbps
             </h1>
-            <p className="text-center sm:text-lg lg:max-w-2xl lg:text-left">
+            <p className="text-center sm:text-lg lg:text-left">
               A free and open-source WASM based plugin service for bots, webhooks, automations and
               more.
             </p>
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-20">
+      <section className="container mx-auto px-6 py-20">
         <div className="mb-12 flex flex-col items-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Features</h2>
         </div>

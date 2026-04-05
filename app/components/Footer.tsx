@@ -4,7 +4,7 @@ import { buttonVariants } from "~/components/ui/button";
 function Footer() {
   return (
     <footer className="w-full border-t">
-      <div className="mx-auto max-w-6xl p-8 md:flex md:items-center md:justify-between">
+      <div className="container mx-auto p-8 md:flex md:items-center md:justify-between">
         <p className="text-center text-sm text-muted-foreground md:text-left">
           © 2026 The wbps Project
         </p>
