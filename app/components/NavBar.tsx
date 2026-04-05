@@ -17,10 +17,10 @@ function NavBar() {
         open ? "bg-background" : "bg-background/70",
       )}
     >
-      <div className="relative container mx-auto flex items-center justify-between p-2">
+      <div className="relative mx-auto flex items-center justify-between p-2 md:container">
         <Link
           to="/"
-          className="inline-flex h-10 shrink-0 items-center justify-center gap-0.5 px-2.5 text-lg md:text-xl"
+          className="inline-flex h-10 shrink-0 items-center justify-center gap-1 px-2.5 text-lg md:text-xl"
         >
           <BrandIcon className="size-10" />
           wbps
@@ -31,7 +31,10 @@ function NavBar() {
             onClick={() => setOpen(!open)}
             variant="ghost"
             size="icon-lg"
-            className={cn("transition md:hidden", open ? "rotate-90" : "")}
+            className={cn(
+              "transition md:hidden",
+              open ? "rotate-90 aria-expanded:bg-transparent" : "",
+            )}
             aria-expanded={open}
             aria-controls="navlink-container"
           >
@@ -42,14 +45,11 @@ function NavBar() {
             id="navlink-container"
             className={cn(
               "absolute top-full right-0 left-0 z-20 flex min-h-svh w-full flex-col items-end gap-2 bg-background px-12 py-6 transition-all duration-300 md:static md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100 md:transition-none",
-              open
-                ? "pointer-events-auto translate-y-0 opacity-100"
-                : "pointer-events-none -translate-y-4 opacity-0",
+              open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
             )}
           >
             <Link
               to="/dashboard"
-              target="_blank"
               className={buttonVariants({
                 variant: "ghost",
                 size: "lg",
@@ -64,7 +64,6 @@ function NavBar() {
 
             <Link
               to="/docs"
-              target="_blank"
               className={buttonVariants({
                 variant: "ghost",
                 size: "lg",
@@ -115,7 +114,7 @@ function NavBar() {
       <Separator
         className={cn(
           "absolute top-full left-1/2 z-30 w-screen -translate-x-1/2 transition-opacity duration-300 md:opacity-0",
-          open ? "opacity-100" : "pointer-events-none opacity-0",
+          open ? "opacity-100" : "opacity-0",
         )}
       />
     </nav>

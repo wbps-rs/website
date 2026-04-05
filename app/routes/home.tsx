@@ -1,4 +1,4 @@
-import { Book, Cpu, Server, Sparkles } from "lucide-react";
+import { Book, Server, SquarePen, Puzzle, Webhook } from "lucide-react";
 import { Link } from "react-router";
 import BrandIcon from "~/components/BrandIcon";
 import {
@@ -71,69 +71,53 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <CardHeader>
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
+              <div className="mb-2 flex items-center gap-2">
                 <Server className="size-4" />
                 Deploy
               </div>
               <CardDescription>
-                <ul className="list-inside list-disc space-y-1">
-                  <li>Open Source under the GPLv3 license</li>
-                  <li>Self hosted</li>
-                  <li>As a paid service</li>
-                </ul>
+                Choose the deployment model that works for you. Run it yourself (open-source under
+                GPLv3), or subscribe to our managed service for convenience and peace of mind.
               </CardDescription>
             </CardHeader>
           </Card>
 
           <Card>
             <CardHeader>
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-                <Cpu className="size-4" />
+              <div className="mb-2 flex items-center gap-2">
+                <SquarePen className="size-4" />
                 Configure
               </div>
               <CardDescription>
-                <ul className="list-inside list-disc space-y-1">
-                  <li>
-                    Through a Docker compose like config (Other config structures like TOML, JSON,
-                    and more will get added soon)
-                  </li>
-                  <li>Through a dashboard website</li>
-                </ul>
+                Set up your environment your way. Use a YAML (Docker Compose-like) config, or
+                explore other formats such as TOML or JSON. Prefer a visual interface? Our dashboard
+                has you covered.
               </CardDescription>
             </CardHeader>
           </Card>
 
           <Card>
             <CardHeader>
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-                <Sparkles className="size-4" />
+              <div className="mb-2 flex items-center gap-2">
+                <Webhook className="size-4" />
                 Services
               </div>
               <CardDescription>
-                <ul className="list-inside list-disc space-y-1">
-                  <li>Well integrated</li>
-                  <li>Performant</li>
-                  <li>Choose and configure the ones you want</li>
-                  <li>First class support</li>
-                </ul>
+                Pick and choose the services you need. Enjoy seamless integration, high performance,
+                and dedicated support, all tailored to fit your workflow.
               </CardDescription>
             </CardHeader>
           </Card>
 
           <Card>
             <CardHeader>
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-                <Book className="size-4" />
+              <div className="mb-2 flex items-center gap-2">
+                <Puzzle className="size-4" />
                 Plugins
               </div>
               <CardDescription>
-                <ul className="list-inside list-disc space-y-1">
-                  <li>Enable and configure the ones you need</li>
-                  <li>Make them yourself with a simple and straightforward API</li>
-                  <li>
-                    Writable in any programming language (supported by the WASM Component Model)
-                  </li>
-                </ul>
+                Extend your platform effortlessly. Enable the plugins you need, build your own with
+                a simple API, and write in any language thanks to WASM support.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -146,26 +130,8 @@ export default function Home() {
           <CardHeader>
             Common Questions
             <CardDescription>
-              <Accordion defaultValue={["scale"]}>
-                <AccordionItem value="scale">
-                  <AccordionTrigger>What happens when a plugin is inactive?</AccordionTrigger>
-                  <AccordionContent>
-                    Inactive plugins can be scaled down, releasing allocated resources. The service
-                    can spin the plugin back up on demand when traffic or events require it.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="wasmtime">
-                  <AccordionTrigger>Why combine this with Wasmtime?</AccordionTrigger>
-                  <AccordionContent>
-                    Wasmtime gives each plugin a constrained runtime boundary, improving fault
-                    isolation and making plugin upgrades safer without redeploying the entire
-                    platform. It loads and runs plugin modules safely with strong isolation
-                    guarantees.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="safety">
+              <Accordion defaultValue={["polyglot"]}>
+                <AccordionItem value="polyglot">
                   <AccordionTrigger>What languages can I write plugins in?</AccordionTrigger>
                   <AccordionContent>
                     Plugins can be written in any programming language that is supported by the WASM

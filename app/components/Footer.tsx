@@ -16,7 +16,7 @@ function Footer() {
               target="_blank"
               className={buttonVariants({
                 variant: "link",
-                className: "h-auto ps-1 pe-0 text-muted-foreground hover:text-foreground",
+                className: "ps-1 pe-0 text-muted-foreground hover:text-foreground",
               })}
             >
               CC BY-SA 4.0
