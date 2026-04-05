@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import { Badge } from "~/components/ui/badge";
 import { Button, buttonVariants } from "~/components/ui/button";
 import { Card, CardDescription, CardHeader } from "~/components/ui/card";
 
@@ -24,12 +23,6 @@ export function meta(_: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const pluginExamples = [
-    "Discord command handlers",
-    "Image processing workers",
-    "Cron-job scheduling",
-  ];
-
   return (
     <main className="relative py-12">
       {/* HERO SECTION */}
@@ -75,15 +68,19 @@ export default function Home() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Features</h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <CardHeader>
               <div className="mb-2 flex items-center gap-2 text-sm font-medium">
                 <Server className="size-4" />
-                Core
+                Deploy
               </div>
               <CardDescription>
-                Interact with different services and manage registered plugins.
+                <ul className="list-inside list-disc space-y-1">
+                  <li>Open Source under the GPLv3 license</li>
+                  <li>Self hosted</li>
+                  <li>As a paid service</li>
+                </ul>
               </CardDescription>
             </CardHeader>
           </Card>
@@ -92,10 +89,16 @@ export default function Home() {
             <CardHeader>
               <div className="mb-2 flex items-center gap-2 text-sm font-medium">
                 <Cpu className="size-4" />
-                Wasmtime
+                Configure
               </div>
               <CardDescription>
-                Loads and runs plugin modules safely with strong isolation guarantees.
+                <ul className="list-inside list-disc space-y-1">
+                  <li>
+                    Through a Docker compose like config (Other config structures like TOML, JSON,
+                    and more will get added soon)
+                  </li>
+                  <li>Through a dashboard website</li>
+                </ul>
               </CardDescription>
             </CardHeader>
           </Card>
@@ -104,25 +107,36 @@ export default function Home() {
             <CardHeader>
               <div className="mb-2 flex items-center gap-2 text-sm font-medium">
                 <Sparkles className="size-4" />
-                Feature Plugins
+                Services
               </div>
               <CardDescription>
-                Write plugins for different services in any language in independent, reusable, and
-                community-maintained pieces.
+                <ul className="list-inside list-disc space-y-1">
+                  <li>Well integrated</li>
+                  <li>Performant</li>
+                  <li>Choose and configure the ones you want</li>
+                  <li>First class support</li>
+                </ul>
               </CardDescription>
             </CardHeader>
           </Card>
-        </div>
 
-        <div className="mt-12 flex flex-col items-center justify-center space-y-4">
-          <p className="text-sm font-medium">Example plugins</p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {pluginExamples.map((name) => (
-              <Badge key={name} variant="outline">
-                {name}
-              </Badge>
-            ))}
-          </div>
+          <Card>
+            <CardHeader>
+              <div className="mb-2 flex items-center gap-2 text-sm font-medium">
+                <Book className="size-4" />
+                Plugins
+              </div>
+              <CardDescription>
+                <ul className="list-inside list-disc space-y-1">
+                  <li>Enable and configure the ones you need</li>
+                  <li>Make them yourself with a simple and straightforward API</li>
+                  <li>
+                    Writable in any programming language (supported by the WASM Component Model)
+                  </li>
+                </ul>
+              </CardDescription>
+            </CardHeader>
+          </Card>
         </div>
       </section>
 
@@ -141,12 +155,22 @@ export default function Home() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="safety">
+                <AccordionItem value="wasmtime">
                   <AccordionTrigger>Why combine this with Wasmtime?</AccordionTrigger>
                   <AccordionContent>
                     Wasmtime gives each plugin a constrained runtime boundary, improving fault
                     isolation and making plugin upgrades safer without redeploying the entire
-                    platform.
+                    platform. It loads and runs plugin modules safely with strong isolation
+                    guarantees.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="safety">
+                  <AccordionTrigger>What languages can I write plugins in?</AccordionTrigger>
+                  <AccordionContent>
+                    Plugins can be written in any programming language that is supported by the WASM
+                    Component Model. This gives you the flexibility to use your preferred language
+                    while still benefiting from strong isolation and security guarantees.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
