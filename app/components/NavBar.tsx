@@ -1,6 +1,6 @@
 import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
 import { ArrowUpRight, Book, Menu, X, LayoutDashboard } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import BrandIcon from "~/components/BrandIcon";
 import { Button, buttonVariants } from "~/components/ui/button";
@@ -9,6 +9,25 @@ import { cn } from "~/lib/utils";
 
 function NavBar() {
   const [open, setOpen] = useState(false);
+
+  const openNavBar = (open: boolean) => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    setOpen(open);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        openNavBar(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <nav
@@ -28,7 +47,7 @@ function NavBar() {
 
         <div className="ml-auto flex items-center gap-2">
           <Button
-            onClick={() => setOpen(!open)}
+            onClick={() => openNavBar(!open)}
             variant="ghost"
             size="icon-lg"
             className={cn(
@@ -44,7 +63,7 @@ function NavBar() {
           <div
             id="navlink-container"
             className={cn(
-              "absolute top-full right-0 left-0 z-20 flex min-h-svh w-full flex-col items-end gap-2 bg-background px-12 py-6 transition-all duration-300 md:static md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100 md:transition-none",
+              "absolute top-full right-0 left-0 z-20 flex min-h-screen w-full flex-col items-end gap-2 bg-background px-12 py-6 transition-all duration-300 md:static md:h-auto md:min-h-0 md:w-auto md:translate-y-0 md:flex-row md:justify-end md:bg-transparent md:p-0 md:opacity-100 md:transition-none",
               open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
             )}
           >
