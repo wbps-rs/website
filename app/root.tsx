@@ -28,7 +28,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <NavBar />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
         <ScrollRestoration />
         <Scripts />
