@@ -41,7 +41,6 @@ export default function Home() {
               <Button size="lg">Get started</Button>
               <Link
                 to="/docs"
-                target="_blank"
                 className={buttonVariants({
                   variant: "outline",
                   size: "lg",
