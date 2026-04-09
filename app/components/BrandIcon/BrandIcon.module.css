@@ -1,0 +1,44 @@
+.biDraw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  animation: draw 1s ease-out forwards;
+}
+
+.biDrawDelayed {
+  animation-delay: 1s;
+}
+
+@keyframes draw {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.biStroke {
+  stroke: #644eef;
+}
+
+.biFill {
+  fill: #644eef;
+}
+
+.biFillEyes {
+  fill: #fff;
+}
+
+.dark {
+  .biStroke {
+    stroke: #7766ff;
+  }
+  .biFill {
+    fill: #7766ff;
+  }
+  .biFillEyes {
+    fill: #3b3b44;
+  }
+}
