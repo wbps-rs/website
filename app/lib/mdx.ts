@@ -54,10 +54,43 @@ function resolvePostsPath(slug: string): string {
   throw new Error(`Post not found for slug: ${slug}`);
 }
 
+function extractSynopsis(source: string, maxLength = 500): string {
+  const truncateMarker = "{/* truncate */}";
+  const truncateIndex = source.indexOf(truncateMarker);
+  const truncated = truncateIndex === -1 ? source : source.slice(0, truncateIndex);
+
+  const cleaned = truncated
+    // Remove frontmatter block
+    .replace(/^---[\s\S]*?---/, "")
+    // Remove fenced code blocks (must come before inline code)
+    .replace(/```[\s\S]*?```/g, "")
+    // Remove import/export statements
+    .replace(/^(import|export).*$/gm, "")
+    // Remove JSX expressions
+    .replace(/\{[^}]*\}/g, "")
+    // Remove JSX tags
+    .replace(/<[^>]+>/g, "")
+    // Remove markdown headings, bold, italic, links, inline code
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/(\*\*|__)(.*?)\1/g, "$2")
+    .replace(/(\*|_)(.*?)\1/g, "$2")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/`[^`]*`/g, "")
+    // Collapse whitespace
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (cleaned.length <= maxLength) return cleaned;
+
+  // Slice and avoid cutting mid-word
+  return cleaned.slice(0, maxLength).replace(/\s+\S*$/, "");
+}
+
 export async function getPostBySlug(slug: string) {
   try {
     const postPath = resolvePostsPath(slug);
     const source = fs.readFileSync(postPath, "utf8");
+    const synopsis = extractSynopsis(source);
     const { code, frontmatter } = await bundleMDX({
       source,
       files: componentFiles,
@@ -73,7 +106,7 @@ export async function getPostBySlug(slug: string) {
       console.error(`Invalid frontmatter in "${slug}":`, parsed.error.message);
       return null;
     }
-    return { code, frontmatter: parsed.data };
+    return { code, frontmatter: parsed.data, synopsis };
   } catch (err) {
     console.error("Error processing MDX:", err);
     return null;
@@ -91,12 +124,14 @@ export function getPostSlugs(): string[] {
   }
 }
 
-export async function getPosts(): Promise<{ slug: string; frontmatter: FrontMatter }[]> {
+export async function getPosts(): Promise<
+  { slug: string; frontmatter: FrontMatter; synopsis: string }[]
+> {
   const slugs = getPostSlugs();
   const posts = await Promise.all(
     slugs.map(async (slug) => {
       const post = await getPostBySlug(slug);
-      return post ? [{ slug, frontmatter: post.frontmatter }] : [];
+      return post ? [{ slug, frontmatter: post.frontmatter, synopsis: post.synopsis }] : [];
     }),
   );
   return posts

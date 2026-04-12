@@ -36,7 +36,7 @@ export default function Home() {
         <p className="text-muted-foreground">News and write-ups from the wpbs team.</p>
       </header>
       <div className="divide-border flex flex-col divide-y">
-        {posts.map(({ slug, frontmatter }) => (
+        {posts.map(({ slug, frontmatter, synopsis }) => (
           <Link
             key={slug}
             to={`/blog/${slug}`}
@@ -68,6 +68,7 @@ export default function Home() {
                   <span>{frontmatter.author}</span>
                 </div>
               </div>
+              <p className="text-md text-muted-foreground mt-1 line-clamp-3">{synopsis}</p>
             </div>
           </Link>
         ))}

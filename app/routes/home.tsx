@@ -20,6 +20,10 @@ export function meta(_: Route.MetaArgs) {
       name: "description",
       content: "A free and open-source WASM based plugin service.",
     },
+    { property: "og:title", content: `wpbs` },
+    { property: "og:description", content: "A free and open-source WASM based plugin service." },
+    { property: "og:type", content: "article" },
+    { property: "og:image", content: "/favicon/web-app-manifest-512x512.png" },
   ];
 }
 
