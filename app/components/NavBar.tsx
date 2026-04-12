@@ -48,7 +48,7 @@ function NavBar() {
           className="inline-flex h-10 shrink-0 items-center justify-center gap-1 px-2.5 text-lg md:text-xl"
         >
           <BrandIcon className="size-10" />
-          wbps
+          wpbs
         </Link>
 
         <div className="ml-auto flex items-center gap-2">
@@ -104,7 +104,7 @@ function NavBar() {
             </Link>
 
             <Link
-              to="https://github.com/wbps-rs"
+              to="https://github.com/wpbs-rs"
               target="_blank"
               className={buttonVariants({
                 variant: "ghost",

@@ -2,10 +2,10 @@ import type { Route } from "./+types/dashboard";
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: "wbps | Dashboard" },
+    { title: "wpbs | Dashboard" },
     {
       name: "description",
-      content: "The wbps Dashboard",
+      content: "The wpbs Dashboard",
     },
   ];
 }

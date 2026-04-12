@@ -2,10 +2,10 @@ import type { Route } from "./+types/docs";
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: "wbps | Docs" },
+    { title: "wpbs | Docs" },
     {
       name: "description",
-      content: "The wbps Documentation",
+      content: "The wpbs Documentation",
     },
   ];
 }
