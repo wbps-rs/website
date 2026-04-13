@@ -29,7 +29,7 @@ export function meta(_: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main className="py-8">
+    <main className="overflow-x-hidden py-8">
       {/* HERO SECTION */}
       <section className="container mx-auto flex flex-col gap-8 px-6 pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
@@ -57,8 +57,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative order-0 flex items-center justify-center lg:order-1">
-            <div className="bg-primary/10 absolute inset-0 transform-gpu rounded-full blur-[100px]" />
+          <div className="relative order-0 flex items-center justify-center overflow-visible lg:order-1">
+            <div className="absolute -inset-1/4 bg-[radial-gradient(circle,color-mix(in_oklch,var(--color-primary)_15%,transparent),transparent_70%)]" />
             <BrandIcon
               className="relative h-auto w-2/3 max-w-sm md:w-1/2 lg:w-full"
               animate={true}

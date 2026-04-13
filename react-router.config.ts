@@ -8,6 +8,6 @@ export default {
   ssr: false,
 
   prerender() {
-    return ["/blog", ...postSlugs.map((s) => `/blog/${s}`)];
+    return ["/", "/blog", ...postSlugs.map((s) => `/blog/${s}`)];
   },
 } satisfies Config;

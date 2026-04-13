@@ -10,7 +10,14 @@ import { cn } from "~/lib/utils";
 
 function NavBar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const openNavBar = (open: boolean) => {
     if (open) {
@@ -39,8 +46,9 @@ function NavBar() {
   return (
     <nav
       className={cn(
-        "sticky top-0 z-10 w-full border-b backdrop-blur-sm",
-        open ? "bg-background" : "bg-background/70",
+        "sticky top-0 z-10 w-full border-b",
+        scrolled && "backdrop-blur-sm",
+        open ? "bg-background" : scrolled ? "bg-background/70" : "bg-background/95",
       )}
     >
       <div className="relative mx-auto flex items-center justify-between p-2 md:container">
