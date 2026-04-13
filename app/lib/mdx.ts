@@ -14,6 +14,7 @@ const frontMatterSchema = z.object({
   author: z.string(),
   heroImage: z.string().optional(),
   heroImageAlt: z.string().optional(),
+  tags: z.array(z.string()).default([]),
 });
 
 export type FrontMatter = z.infer<typeof frontMatterSchema>;

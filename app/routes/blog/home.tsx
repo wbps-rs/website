@@ -2,6 +2,7 @@ import { Calendar, UserPen } from "lucide-react";
 import { useLoaderData } from "react-router";
 import { Link } from "react-router";
 
+import { Badge } from "~/components/ui/badge";
 import formatDate from "~/lib/format-date";
 import { getPosts } from "~/lib/mdx";
 
@@ -68,6 +69,15 @@ export default function Home() {
                   <span>{frontmatter.author}</span>
                 </div>
               </div>
+              {frontmatter.tags.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {frontmatter.tags.map((tag) => (
+                    <Badge key={tag} variant="outline">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
               <p className="text-md text-muted-foreground mt-1 line-clamp-3">{synopsis}</p>
             </div>
           </Link>

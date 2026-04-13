@@ -4,6 +4,7 @@ import { getMDXComponent } from "mdx-bundler/client";
 import { useMemo } from "react";
 import { useLoaderData } from "react-router";
 
+import { Badge } from "~/components/ui/badge";
 import { Separator } from "~/components/ui/separator";
 import formatDate from "~/lib/format-date";
 import { getPostBySlug } from "~/lib/mdx";
@@ -58,6 +59,15 @@ export default function Post() {
                 <span>{frontmatter.author}</span>
               </div>
             </div>
+            {frontmatter.tags.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-1">
+                {frontmatter.tags.map((tag) => (
+                  <Badge key={tag} variant="outline">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
             <Separator className="mt-8" />
             {frontmatter.heroImage && (
               <figure>
