@@ -1,18 +1,5 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "sortImports": {
-    "newlinesBetween": false,
-    "groups": [
-      ["value-builtin", "value-external"],
-      ["value-internal", "value-parent", "value-sibling", "value-index"],
-      { "newlinesBetween": true },
-      "type-import",
-      "unknown"
-    ]
-  },
-  "sortTailwindcss": {
-    "stylesheet": "./app/app.css",
-    "functions": ["clsx", "cn"],
-    "preserveWhitespace": true
-  }
+  "sortImports": true,
+  "sortTailwindcss": true
 }
