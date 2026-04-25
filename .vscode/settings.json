@@ -1,5 +1,5 @@
 {
-  "[markdown][yaml][json][typescript][javascript][typescriptreact][javascriptreact][css]": {
+  "[markdown][yaml][json][typescript][javascript][typescriptreact][javascriptreact][css][mdx]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   }
 }
