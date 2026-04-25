@@ -6,10 +6,12 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
 } from "react-router";
+
 import Footer from "~/components/Footer";
 import NavBar from "~/components/NavBar";
 
 import type { Route } from "./+types/root";
+
 import "./app.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,6 @@
-import styles from "./BrandIcon.module.css";
-
 import type { SVGProps } from "react";
+
+import styles from "./BrandIcon.module.css";
 
 function BrandIcon({ animate, ...props }: SVGProps<SVGSVGElement> & { animate?: boolean }) {
   return (

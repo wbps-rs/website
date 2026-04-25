@@ -1,5 +1,6 @@
 import { Book, Server, SquarePen, Puzzle, Webhook } from "lucide-react";
 import { Link } from "react-router";
+
 import BrandIcon from "~/components/BrandIcon";
 import {
   Accordion,
@@ -29,7 +30,7 @@ export default function Home() {
       <section className="container mx-auto flex flex-col gap-8 px-6 pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="order-1 space-y-6 lg:order-0">
-            <h1 className="text-center text-4xl leading-tight font-semibold tracking-tight text-balance text-primary sm:text-5xl lg:text-left">
+            <h1 className="text-primary text-center text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-left">
               wpbs
             </h1>
             <p className="text-center sm:text-lg lg:text-left">
@@ -53,7 +54,7 @@ export default function Home() {
           </div>
 
           <div className="relative order-0 flex items-center justify-center lg:order-1">
-            <div className="absolute inset-0 transform-gpu rounded-full bg-primary/10 blur-[100px]" />
+            <div className="bg-primary/10 absolute inset-0 transform-gpu rounded-full blur-[100px]" />
             <BrandIcon
               className="relative h-auto w-2/3 max-w-sm md:w-1/2 lg:w-full"
               animate={true}

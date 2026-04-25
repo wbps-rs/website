@@ -2,6 +2,7 @@ import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
 import { ArrowUpRight, Book, Menu, X, LayoutDashboard } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
+
 import BrandIcon from "~/components/BrandIcon";
 import { Button, buttonVariants } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
